@@ -7,47 +7,61 @@
 #define cavaloBaixo 2
 #define cavaloEsquerda 1
 
+// Função recursiva para o Bispo
+void moverBispo(int vertical, int horizontal) {
+    if (vertical == 0) return;
+    printf("Cima\n");
+    int h;
+    for (h = 0; h < horizontal; h++) {
+        printf("Direita\n");
+    }
+    moverBispo(vertical - 1, horizontal);
+}
+
+// Função recursiva para a Torre
+void moverTorre(int movimentos) {
+    if (movimentos == 0) return;
+    printf("Direita\n");
+    moverTorre(movimentos - 1);
+}
+
+// Função recursiva para a Rainha
+void moverRainha(int movimentos) {
+    if (movimentos == 0) return;
+    printf("Esquerda\n");
+    moverRainha(movimentos - 1);
+}
+
 int main() {
     int i;
 
-    //Bispo: 5 casas na diagonal cima direita
+    // Bispo: 5 casas na diagonal cima direita
     printf("Bispo:\n");
-    for (i = 0; i < moviBispo; i++) {
-        printf("Cima, Direita\n");
-    }
+    moverBispo(5,1);
     printf("\n");
 
-    //Movimentação da Torre: 5 casas para a direita
+    // Movimentação da Torre: 5 casas para a direita
     printf("Torre:\n");
-    i = 0;
-    while (i < moviTorre) {
-        printf("Direita\n");
-        i++;
-    }
+    moverTorre(moviTorre);
     printf("\n");
 
-    //Movimentação da Rainha: 8 casas para a esquerda
+    // Movimentação da Rainha: 8 casas para a esquerda
     printf("Rainha:\n");
-    i = 0;
-    do {
-        printf("Esquerda\n");
-        i++;
-    } while (i < moviRainha);
+    moverRainha(moviRainha);
     printf("\n");
 
-    //Moviementação do Cavalo: 2 casas para baixo e 1 para esquerda  
+    //Moviementação do Cavalo: 2 casas para cima e 1 para esquerda  
     printf("Cavalo:\n");
     int movimentosCavalo = 1;
-    int j, k;
-    for (j = 0; j < movimentosCavalo; j++) {
-        k = 0;
-        while (k < cavaloBaixo + cavaloEsquerda) {
-            if (k < cavaloBaixo) {
-                printf("Baixo\n");
-            } else {
-                printf("Esquerda\n");
+    int l, m, n;
+    for (l = 0; l < movimentosCavalo; l++) {
+        for (m = 0; m < 3; m++) {
+            if (m < 2) {
+                printf("Cima\n");
+                continue;
             }
-            k++;
+            printf("Direita\n");
+            break;
         }
     }
     printf("\n");
