@@ -4,6 +4,8 @@
 #define moviBispo 5
 #define moviTorre 5
 #define moviRainha 8
+#define cavaloBaixo 2
+#define cavaloEsquerda 1
 
 int main() {
     int i;
@@ -31,6 +33,23 @@ int main() {
         printf("Esquerda\n");
         i++;
     } while (i < moviRainha);
+    printf("\n");
+
+    //Moviementação do Cavalo: 2 casas para baixo e 1 para esquerda  
+    printf("Cavalo:\n");
+    int movimentosCavalo = 1;
+    int j, k;
+    for (j = 0; j < movimentosCavalo; j++) {
+        k = 0;
+        while (k < cavaloBaixo + cavaloEsquerda) {
+            if (k < cavaloBaixo) {
+                printf("Baixo\n");
+            } else {
+                printf("Esquerda\n");
+            }
+            k++;
+        }
+    }
     printf("\n");
 
     return 0;
